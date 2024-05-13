@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { getLenght } from './components/getLenght';
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(getLenght('word')).toBe(4);
+  expect(getLenght('dinosaure')).toBe(2);
 });

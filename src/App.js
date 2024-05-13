@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+
 
 function App() {
+  const [word, setWord] = useState("");
+  const [count, setCount] = useState(0);
+
+  const getLenght = () => {
+    setCount(word.length)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3 mt-5">
+            <h1 class="text-center mb-4">Count word</h1>
+            <div class="form-group">
+              <label for="nom">Word</label>
+              <input type="text" class="form-control" id="nom" name="nom" value={word} onChange={e => setWord(e.target.value)} required />
+            </div>
+            <p>{count}</p>
+            <button onClick={getLenght} class="btn btn-primary">Count</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
